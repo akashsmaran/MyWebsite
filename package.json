@@ -1,0 +1,21 @@
+{
+  "name": "my_portfolio",
+  "version": "1.0.0",
+  "description": "Resposive Web Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "akashsmaran"
+  },
+  "author": "Akash Smaran",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {
+    "sass": "^1.15.2"
+  }
+}
