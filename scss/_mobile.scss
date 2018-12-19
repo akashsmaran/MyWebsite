@@ -53,6 +53,9 @@
       "job3";
 
     grid-template-columns: ifr;
+    .job-1 {
+      grid-area: job1;
+    }
   }
 }
 //Smartphones

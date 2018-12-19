@@ -59,10 +59,10 @@
       border-radius: 50%;
       border: solid 3px #eece1a; }
   .menu .nav-item {
-    transform: translate3d(600px, 0, 0);
+    transform: translate(600px, 0);
     transition: all 0.5s ease-out; }
     .menu .nav-item.show {
-      transform: translate3d(0, 0, 0); }
+      transform: translate(0, 0); }
     .menu .nav-item.current > a {
       color: #eece1a; }
   .menu .nav-link {
@@ -216,7 +216,9 @@ main {
       height: 150px; }
   .about-info {
     grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
-    grid-template-columns: ifr; } }
+    grid-template-columns: ifr; }
+    .about-info .job-1 {
+      grid-area: job1; } }
 
 @media screen and (max-width: 500px) {
   main#home h1 {

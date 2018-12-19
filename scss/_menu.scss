@@ -91,11 +91,13 @@
   }
 
   .nav-item {
-    transform: translate3d(600px, 0, 0);
+    // transform: translate3d(600px, 0, 0);
+    transform: translate(600px, 0);
     @include easeOut;
     &.show {
       //Slide from right
-      transform: translate3d(0, 0, 0);
+      // transform: translate3d(0, 0, 0);
+      transform: translate(0, 0);
     }
 
     &.current > a {
