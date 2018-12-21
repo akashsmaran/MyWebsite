@@ -1,6 +1,6 @@
 @import "config";
 @import "menu";
-
+@import "hidden";
 * {
   box-sizing: border-box;
 }
@@ -47,6 +47,11 @@ header {
   color: $secondary-color;
 }
 
+.center {
+  text-align: center;
+  //margin: 0 auto;
+}
+
 main {
   padding: 4rem;
   //height: 100%;
@@ -66,7 +71,7 @@ main {
   &#home {
     overflow: hidden;
     h1 {
-      margin-top: 20vh;
+      margin-top: 0.5vh;
     }
   }
 }

@@ -12,15 +12,26 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/three.min.js"></script>
   </head>
   <body id="bg-img">
     <header>
+      <div class="world" id="world" style="position: fixed;"></div>
+      <div class="up-arrow" onclick="x()"><i class="fas fa-arrow-up"></i></div>
+      <div class="hidden_page">
+        <div class="hidden_page-model"></div>
+        <div class="hidden_page-random">
+          <h1 class="rp">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto vel
+            inventore saepe omnis amet assumenda vero et laborum aliquid non.
+          </h1>
+        </div>
+      </div>
       <div class="menu-btn">
         <div class="btn-line"></div>
         <div class="btn-line"></div>
         <div class="btn-line"></div>
       </div>
-
       <div class="menu">
         <div class="menu-branding"><div class="portrait"></div></div>
         <ul class="menu-nav">
@@ -41,18 +52,24 @@
     </header>
 
     <main id="home">
-      <h1 class="lg-heading">
-        Akash <span class="text-secondary">Smaran</span>
-      </h1>
-      <h2 class="sm-heading">
-        Data Scientist, Web Developer, Programmer, Researcher, & Entrepreneur
-      </h2>
-      <div class="icons">
-        <a href="#!"> <i class="fab fa-github fa-2x"></i> </a>
-        <a href="#!"> <i class="fab fa-linkedin fa-2x"></i> </a>
+      <div class="center">
+        <h1 class="lg-heading">
+          Akash <span class="text-secondary">Smaran</span>
+        </h1>
+        <h2 class="sm-heading">
+          Data Scientist, Web Developer, Programmer, Researcher, & Entrepreneur
+        </h2>
+        <div class="icons">
+          <a href="#!"> <i class="fab fa-github fa-2x"></i> </a>
+          <a href="#!"> <i class="fab fa-linkedin fa-2x"></i> </a>
+        </div>
       </div>
     </main>
 
+    <script type="text/javascript" src="js/main_step2.js"></script>
+    <script type="text/javascript" src="js/main_step1.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/OrbitControls.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

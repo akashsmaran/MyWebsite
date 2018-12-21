@@ -32,3 +32,34 @@ function toggleMenu() {
     showMenu = false;
   }
 }
+
+const hidden = document.querySelector(".hidden_page");
+const random = document.querySelector(".hidden_page-random");
+const model = document.querySelector(".hidden_page-model");
+const up_arrow = document.querySelector(".up-arrow");
+const rp = document.querySelector(".rp");
+
+let pageShown = false;
+
+up_arrow.addEventListener("click", togglePage);
+function togglePage() {
+  if (!pageShown) {
+    up_arrow.classList.add("close");
+    hidden.classList.add("show");
+    random.classList.add("show");
+    model.classList.add("show1");
+    model.classList.add("show");
+    rp.classList.add("show");
+    //Set menu state
+    pageShown = true;
+  } else {
+    up_arrow.classList.remove("close");
+    hidden.classList.remove("show");
+    random.classList.remove("show");
+    model.classList.remove("show");
+    model.classList.remove("show1");
+    rp.classList.remove("show");
+    //Set menu state
+    pageShown = false;
+  }
+}
