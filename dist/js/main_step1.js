@@ -1,3 +1,4 @@
+//import MTLLoader from "three-mtl-loader";
 //COLORS
 var Colors = {
   red: 0xf25346,
@@ -241,13 +242,18 @@ function x() {
   //SCREEN VARIABLES
 
   var HEIGHT, WIDTH;
-
+  let humanModel = null;
+  let OBJLoader = new THREE.OBJLoader();
   //INIT THREE JS, SCREEN AND MOUSE EVENTS
 
   function createScene() {
     HEIGHT = window.innerHeight;
-    WIDTH = window.innerWidth / 2;
-
+    WIDTH = window.innerWidth;
+    if (WIDTH > 768) {
+      WIDTH = WIDTH / 2;
+    } else {
+      HEIGHT = HEIGHT / 2;
+    }
     scene = new THREE.Scene();
     aspectRatio = WIDTH / HEIGHT;
     fieldOfView = 60;
@@ -261,20 +267,22 @@ function x() {
     );
     scene.fog = new THREE.Fog(0xf7d9aa, 100, 950);
     camera.position.x = 0;
-    camera.position.z = 120;
-    camera.position.y = 100;
+    camera.position.z = 10; //50
+    camera.position.y = 53; //120
 
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(WIDTH, HEIGHT);
     renderer.shadowMap.enabled = true;
     container = document.querySelector(".hidden_page-model");
     container.appendChild(renderer.domElement);
-
+    /*
     var loader = new THREE.OBJLoader();
-    var humanModel;
+
     loader.load(
       // resource URL
-      "Cadnav.com_B0426014.obj",
+      //"Cadnav.com_B0426014.obj",
+      //"Rock_9.OBJ",
+      "trophyobjectfile.obj",
       // called when resource is loaded
       function(object) {
         object.position.set(0, 50, 0);
@@ -283,7 +291,44 @@ function x() {
         humanModel = object;
       }
     );
+    */
+
+    var humanModelPromise = loadObj(
+      "models/trophyobjectfile.obj",
+      "models/trophyobjectfile.mtl"
+    );
+
+    humanModelPromise.then(object => {
+      object.position.set(0, 50, 0);
+      object.rotation.x = Math.PI / 60;
+      humanModel = object; //adding the humanModel to the global variable
+      //a = true;
+      //humanModel.add(clothModel);
+      scene.add(humanModel);
+      // return object;
+    });
+
     window.addEventListener("resize", handleWindowResize, false);
+  }
+
+  function loadObj(modelPath, materialPath) {
+    var progress = console.log;
+
+    return new Promise(function(resolve, reject) {
+      var mtlLoader = new THREE.MTLLoader();
+      console.log(materialPath);
+      mtlLoader.load(
+        materialPath,
+        function(materials) {
+          materials.preload();
+
+          OBJLoader.setMaterials(materials);
+          OBJLoader.load(modelPath, resolve, progress, reject);
+        },
+        progress,
+        reject
+      );
+    });
   }
 
   // HANDLE SCREEN EVENTS
@@ -291,6 +336,11 @@ function x() {
   function handleWindowResize() {
     HEIGHT = window.innerHeight;
     WIDTH = window.innerWidth;
+    if (WIDTH > 768) {
+      WIDTH = WIDTH / 2;
+    } else {
+      HEIGHT = HEIGHT / 2;
+    }
     renderer.setSize(WIDTH, HEIGHT);
     camera.aspect = WIDTH / HEIGHT;
     camera.updateProjectionMatrix();
@@ -319,6 +369,28 @@ function x() {
     scene.add(shadowLight);
     scene.add(ambientLight);
   }
+
+  var rotWorldMatrix;
+  // Rotate an object around an arbitrary axis in world space
+  function rotateAroundWorldAxis(object, axis, radians) {
+    rotWorldMatrix = new THREE.Matrix4();
+    rotWorldMatrix.makeRotationAxis(axis.normalize(), radians);
+
+    // old code for Three.JS pre r54:
+    //  rotWorldMatrix.multiply(object.matrix);
+    // new code for Three.JS r55+:
+    rotWorldMatrix.multiply(object.matrix); // pre-multiply
+
+    object.matrix = rotWorldMatrix;
+
+    // old code for Three.js pre r49:
+    // object.rotation.getRotationFromMatrix(object.matrix, object.scale);
+    // old code for Three.js pre r59:
+    // object.rotation.setEulerFromRotationMatrix(object.matrix);
+    // code for r59+:
+    object.rotation.setFromRotationMatrix(object.matrix);
+  }
+
   /*
   Sky = function() {
     this.mesh = new THREE.Object3D();
@@ -428,6 +500,10 @@ function x() {
     //updateCameraFov();
     //sea.moveWaves();
     //sky.mesh.rotation.z += 0.01;
+    var xAxis = new THREE.Vector3(0, 1, 0);
+    if (humanModel != null) {
+      rotateAroundWorldAxis(humanModel, xAxis, Math.PI / 180);
+    }
     renderer.render(scene, camera);
     requestAnimationFrame(loop);
   }

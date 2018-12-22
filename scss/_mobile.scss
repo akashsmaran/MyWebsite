@@ -57,6 +57,19 @@
       grid-area: job1;
     }
   }
+  .hidden_page-model,
+  .hidden_page-random {
+    width: 100%;
+    height: 50vh;
+    float: none;
+    //width: 100%;
+    min-height: 0;
+    //overflow: scroll;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 //Smartphones
 @include mediaSm {

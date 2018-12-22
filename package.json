@@ -13,7 +13,8 @@
   "author": "Akash Smaran",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "three-mtl-loader": "^1.0.2"
   },
   "devDependencies": {
     "sass": "^1.15.2"
