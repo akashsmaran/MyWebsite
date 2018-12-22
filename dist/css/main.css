@@ -133,7 +133,6 @@
     padding: 0;
     text-align: center;
     opacity: 0.8;
-    background-color: #fff;
     transform: translate3d(0, 100%, 0);
     transition: all 0.5s ease-out; }
     .hidden_page-model.show {
