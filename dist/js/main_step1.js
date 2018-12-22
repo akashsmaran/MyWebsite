@@ -217,7 +217,7 @@ window.addEventListener("load", init, false);
 
 function x() {
   setTimeout(function() {
-    init(this), 2000;
+    init(this), 500;
   });
   var Colors = {
     red: 0xf25346,
@@ -249,8 +249,8 @@ function x() {
   function createScene() {
     HEIGHT = window.innerHeight;
     WIDTH = window.innerWidth;
-    if (WIDTH > 768) {
-      WIDTH = WIDTH / 2;
+    if (WIDTH > 900) {
+      WIDTH = WIDTH / 3.33;
     } else {
       HEIGHT = HEIGHT / 2;
     }
@@ -267,8 +267,8 @@ function x() {
     );
     scene.fog = new THREE.Fog(0xf7d9aa, 100, 950);
     camera.position.x = 0;
-    camera.position.z = 10; //50
-    camera.position.y = 53; //120
+    camera.position.z = 15; //50
+    camera.position.y = 55; //120
 
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(WIDTH, HEIGHT);
@@ -336,8 +336,8 @@ function x() {
   function handleWindowResize() {
     HEIGHT = window.innerHeight;
     WIDTH = window.innerWidth;
-    if (WIDTH > 768) {
-      WIDTH = WIDTH / 2;
+    if (WIDTH > 900) {
+      WIDTH = WIDTH / 3.33;
     } else {
       HEIGHT = HEIGHT / 2;
     }

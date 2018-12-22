@@ -21,14 +21,21 @@ h2,
 h3 {
   margin: 0;
   font-weight: 400;
-
+  transform: translate3d(0, 0, 0);
+  @include easeOut;
   &.lg-heading {
     font-size: 6rem;
+    &.show {
+      transform: translate3d(0, -1000%, 0);
+    }
   }
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
     background: rgba(lighten($primary-color, $amount: 2), 0.5);
+    &.show {
+      transform: translate3d(0, -1000%, 0);
+    }
   }
 }
 

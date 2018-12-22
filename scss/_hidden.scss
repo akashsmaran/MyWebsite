@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
+  opacity: 1;
   visibility: hidden;
   //background: #fff;
 
@@ -23,23 +23,27 @@
   }
 
   &-model,
-  &-random {
+  &-random,
+  &-randomer {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     float: left;
-    width: 50%;
+    width: 33.3%;
     height: 100vh;
     overflow: hidden;
   }
 
-  &-random {
+  &-random,
+  &-randomer {
     margin: 0;
     padding: 0;
     text-align: center;
     opacity: 1;
-    background: darken($secondary-color, 5);
+    list-style: none;
+    //background: darken($secondary-color, 1);
+    background: $secondary-color;
     transform: translate3d(0, 100%, 0);
     @include easeOut;
     &.show {
@@ -52,8 +56,8 @@
     margin: 0;
     padding: 0;
     text-align: center;
-    opacity: 0.9;
-    //background-color: $secondary-color;
+    opacity: 0.8;
+    background-color: $primary-color;
     transform: translate3d(0, 100%, 0);
     @include easeOut;
 
@@ -61,5 +65,54 @@
       //Slide from top
       transform: translate3d(0, 0, 0);
     }
+  }
+  .tech {
+    transform: translate(600px, 0);
+    @include easeOut;
+    &.show {
+      //Slide from right
+      // transform: translate3d(0, 0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  .tech1 {
+    transform: translate(-600px, 0);
+    @include easeOut;
+    &.show {
+      //Slide from right
+      // transform: translate3d(0, 0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  .data,
+  .web {
+    // transform: translate3d(600px, 0, 0);
+    list-style: none;
+    //transform: translate(600px, 0);
+    @include easeOut;
+  }
+  .rp {
+    text-transform: uppercase;
+    background: darken($color: $secondary-color, $amount: 10);
+  }
+  .tech1,
+  .tech {
+    //display: inline-block;
+    //position: relative;
+    font-size: 30px;
+    //text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    //color: set-text-color($primary-color);
+    text-decoration: none;
+  }
+}
+
+@for $x from 1 through 5 {
+  .tech:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+  .tech1:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
   }
 }
