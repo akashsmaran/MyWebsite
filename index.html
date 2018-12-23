@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>New Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="js/three.min.js"></script>
+  </head>
+  <body id="bg-img">
+    <header>
+      <div class="world" id="world" style="position: fixed;"></div>
+      <div class="up-arrow" onclick="x()"><i class="fas fa-arrow-up"></i></div>
+      <div class="hidden_page">
+        <div class="hidden_page-random">
+          <h1 class="rp">Data Science</h1>
+          <ul class="data">
+            <li class="tech1">Python</li>
+            <li class="tech1">Tensorflow</li>
+            <li class="tech1">Keras</li>
+            <li class="tech1">Scikit-Learn</li>
+            <li class="tech1">R</li>
+          </ul>
+        </div>
+        <div class="hidden_page-model"></div>
+        <div class="hidden_page-randomer">
+          <h1 class="rp">Web Development</h1>
+          <ul class="web">
+            <li class="tech">HTML</li>
+            <li class="tech">CSS</li>
+            <li class="tech">Javascript</li>
+            <li class="tech">Php</li>
+            <li class="tech">Three.js</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-btn">
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+        <div class="btn-line"></div>
+      </div>
+      <div class="menu">
+        <div class="menu-branding"><div class="portrait"></div></div>
+        <ul class="menu-nav">
+          <li class="nav-item current">
+            <a href="index.html" class="nav-link"> Home </a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link"> About Me </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="home">
+      <div class="center">
+        <h1 class="lg-heading">
+          Akash <span class="text-secondary">Smaran</span>
+        </h1>
+        <h2 class="sm-heading">
+          Data Scientist, Web Developer, Programmer, Researcher, & Entrepreneur
+        </h2>
+        <div class="icons">
+          <a href="#!"> <i class="fab fa-github fa-2x"></i> </a>
+          <a href="#!"> <i class="fab fa-linkedin fa-2x"></i> </a>
+        </div>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="js/main_step1.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/MTLLoader.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
