@@ -92,13 +92,15 @@
     @include easeOut;
   }
   .rp {
+    display: inline-block;
+    position: relative;
     text-transform: uppercase;
     background: darken($color: $secondary-color, $amount: 10);
   }
   .tech1,
   .tech {
-    //display: inline-block;
-    //position: relative;
+    display: inline-block;
+    position: relative;
     font-size: 30px;
     //text-transform: uppercase;
     padding: 1rem 0;
