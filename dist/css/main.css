@@ -152,14 +152,11 @@
     list-style: none;
     transition: all 0.5s ease-out; }
   .hidden_page .rp {
-    display: inline-block;
-    position: relative;
     text-transform: uppercase;
     background: #86c5da; }
   .hidden_page .tech1,
   .hidden_page .tech {
-    display: inline-block;
-    position: relative;
+    text-align: center;
     font-size: 30px;
     padding: 1rem 0;
     font-weight: 300;
